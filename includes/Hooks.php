@@ -90,7 +90,7 @@ class Hooks implements
 	private function hasRelatedArticles( Skin $skin ): bool {
 		$title = $skin->getTitle();
 		$action = $skin->getRequest()->getRawVal( 'action' ) ?? 'view';
-		return $title->inNamespace( NS_MAIN ) &&
+		return $title->inNamespaces( $this->relatedArticlesConfig->get( 'RelatedArticlesFooterAllowedNamespaces' ) ) &&
 			// T120735
 			$action === 'view' &&
 			!$title->isMainPage() &&
