@@ -90,7 +90,9 @@ class Hooks implements
 	private function hasRelatedArticles( Skin $skin ): bool {
 		$title = $skin->getTitle();
 		$action = $skin->getRequest()->getRawVal( 'action', 'view' );
-		return $title->inNamespace( NS_MAIN ) &&
+		$config = MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'RelatedArticles' );
+		return $title->inNamespaces( $config->get( 'RelatedArticlesFooterAllowedNamespaces' ) ) &&
 			// T120735
 			$action === 'view' &&
 			!$title->isMainPage() &&

@@ -129,6 +129,12 @@
 		"RelatedArticlesFooterAllowedSkins": {
 			"description": "List of skin names (e.g. 'minerva') where related articles will be shown in the footer.",
 			"value": []
+		},
+		"RelatedArticlesFooterAllowedNamespaces": {
+			"description": "List of namespaces where related articles will be shown in the footer.",
+			"value": [
+				0
+			]
 		}
 	},
 	"ConfigRegistry": {
